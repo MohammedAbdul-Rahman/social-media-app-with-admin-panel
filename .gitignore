@@ -1,0 +1,25 @@
+# Global ignores
+node_modules/
+dist/
+.env
+uploads/
+.vscode/
+.DS_Store
+
+# Frontend specific
+socialmedia-frontend/node_modules/
+socialmedia-frontend/dist/
+
+# Backend specific
+socialmedia-Backend/node_modules/
+socialmedia-Backend/uploads/
+socialmedia-Backend/.env
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# System files
+Thumbs.db
