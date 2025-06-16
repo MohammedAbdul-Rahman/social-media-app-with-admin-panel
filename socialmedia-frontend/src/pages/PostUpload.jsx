@@ -23,7 +23,7 @@ export default function PostUpload() {
     formData.append("image", image);
 
     try {
-      const {data} = await axios.post("http://localhost:5000/api/posts/create", formData, {
+      const {data} = await axios.post("https://social-media-app-with-admin-panel.onrender.com/api/posts/create", formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",

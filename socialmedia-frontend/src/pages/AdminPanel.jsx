@@ -29,7 +29,7 @@ export default function AdminPanel() {
     try {
       setLoading(true);
       const res = await axios.get(
-        "http://localhost:5000/api/posts/unapproved",
+        "https://social-media-app-with-admin-panel.onrender.com/api/posts/unapproved",
         {
           headers: authHeader(),
         }
@@ -53,7 +53,7 @@ export default function AdminPanel() {
   const handleApprove = async (id) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/posts/approve/${id}`,
+        `https://social-media-app-with-admin-panel.onrender.com/api/posts/approve/${id}`,
         {},
         { headers: authHeader() }
       );
@@ -78,7 +78,7 @@ export default function AdminPanel() {
           {posts.map((post) => (
             <div key={post._id} className="border rounded shadow p-4">
               <img
-                src={`http://localhost:5000/uploads/${post.image}`}
+                src={`https://social-media-app-with-admin-panel.onrender.com/uploads/${post.image}`}
                 alt={post.caption}
                 className="w-full h-48 object-cover rounded mb-2"
               />

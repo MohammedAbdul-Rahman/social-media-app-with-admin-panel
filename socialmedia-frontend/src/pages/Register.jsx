@@ -28,7 +28,7 @@ const Register = () => {
     e.preventDefault();
     setMessage("");
     try {
-      await axios.post("http://localhost:5000/api/auth/register", formData);
+      await axios.post("https://social-media-app-with-admin-panel.onrender.com/api/auth/register", formData);
       setMessage("User registered successfully!");
       setFormData({ username: "", email: "", password: "" });
     } catch (err) {

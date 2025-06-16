@@ -14,7 +14,7 @@ export default function Login() {
     setMsg("");
 
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/login", {
+      const res = await axios.post("https://social-media-app-with-admin-panel.onrender.com/api/auth/login", {
         email,
         password,
       });

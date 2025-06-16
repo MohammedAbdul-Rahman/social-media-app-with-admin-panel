@@ -8,7 +8,7 @@ const Feed = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const { data } = await axios.get("http://localhost:5000/api/posts");
+        const { data } = await axios.get("https://social-media-app-with-admin-panel.onrender.com/api/posts");
         setPosts(data);
       } catch (err) {
         setMsg("❌ Failed to fetch posts");
@@ -35,7 +35,7 @@ const Feed = () => {
               className="bg-white p-4 rounded shadow-md flex flex-col"
             >
               <img
-                src={`http://localhost:5000/uploads/${post.image}`}
+                src={`https://social-media-app-with-admin-panel.onrender.com/uploads/${post.image}`}
                 alt={post.caption}
                 className="rounded w-full h-64 object-cover mb-4"
               />

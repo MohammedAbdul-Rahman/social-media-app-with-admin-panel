@@ -16,7 +16,7 @@ const UserApprovalPanel = () => {
         console.log("📡 Sending request with headers:", authHeader);
 
         const { data } = await axios.get(
-          "http://localhost:5000/api/users/unapproved",
+          "https://social-media-app-with-admin-panel.onrender.com/api/users/unapproved",
           {
             headers: authHeader,
           }
@@ -47,7 +47,7 @@ const UserApprovalPanel = () => {
       };
 
       await axios.put(
-        `http://localhost:5000/api/users/approve/${userId}`,
+        `https://social-media-app-with-admin-panel.onrender.com/api/users/approve/${userId}`,
         {},
         {
           headers: authHeader,
