@@ -21,7 +21,6 @@ const Feed = () => {
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       <h1 className="text-3xl font-bold text-gray-800 mb-6">Feed</h1>
-      
 
       {msg && <p className="text-red-500 text-sm mb-4">{msg}</p>}
 
@@ -35,7 +34,7 @@ const Feed = () => {
               className="bg-white p-4 rounded shadow-md flex flex-col"
             >
               <img
-                src={`https://social-media-app-with-admin-panel.onrender.com/uploads/${post.image}`}
+                src={post.imageUrl}
                 alt={post.caption}
                 className="rounded w-full h-64 object-cover mb-4"
               />

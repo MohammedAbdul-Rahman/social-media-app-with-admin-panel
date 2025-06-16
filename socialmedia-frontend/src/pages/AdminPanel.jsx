@@ -34,10 +34,7 @@ export default function AdminPanel() {
           headers: authHeader(),
         }
       );
-      console.log("📥 Unapproved posts from backend:", res.data);
       setPosts(res.data);
-
-      setPosts(unapproved);
     } catch (err) {
       console.error("❌ Fetch error:", err.message);
       setError("Failed to load posts.");
@@ -78,7 +75,7 @@ export default function AdminPanel() {
           {posts.map((post) => (
             <div key={post._id} className="border rounded shadow p-4">
               <img
-                src={`https://social-media-app-with-admin-panel.onrender.com/uploads/${post.image}`}
+                src={post.imageUrl}
                 alt={post.caption}
                 className="w-full h-48 object-cover rounded mb-2"
               />

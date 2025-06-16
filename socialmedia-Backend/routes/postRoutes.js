@@ -1,3 +1,5 @@
+
+
 const express = require("express");
 const router = express.Router();
 const verifyToken = require("../middleware/authMiddleware");
@@ -18,14 +20,14 @@ router.post(
           message: "You are not approved by admin to create posts.",
         });
       }
- 
+
       if (!req.file) {
         return res.status(400).json({ message: "Image is required" });
       }
 
       const newPost = new Post({
         caption,
-        image: req.file.filename,
+        imageUrl: req.file.path,
         owner: req.user.id,
         isApproved: req.user.role === "admin" ? true : false,
       });
@@ -98,14 +100,16 @@ router.delete("/:id", verifyToken, async (req, res) => {
   }
 });
 
-
 router.get("/unapproved", verifyToken, async (req, res) => {
   try {
     if (req.user.role !== "admin") {
       return res.status(403).json({ message: "Admins only" });
     }
 
-    const posts = await Post.find({ isApproved: false }).populate("owner", "username");
+    const posts = await Post.find({ isApproved: false }).populate(
+      "owner",
+      "username"
+    );
     res.status(200).json(posts);
   } catch (err) {
     console.error("❌ Error fetching unapproved posts:", err);

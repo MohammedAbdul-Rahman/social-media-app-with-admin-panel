@@ -15,7 +15,7 @@ export default function PostUpload() {
     setMsg("");
     if (!image) {
       setMsg("❌ Please select an image.");
-    console.log("uploading image");
+      return;
     }
 
     const formData = new FormData();
@@ -23,26 +23,29 @@ export default function PostUpload() {
     formData.append("image", image);
 
     try {
-      const {data} = await axios.post("https://social-media-app-with-admin-panel.onrender.com/api/posts/create", formData, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      const { data } = await axios.post(
+        "https://social-media-app-with-admin-panel.onrender.com/api/posts/create",
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
 
       setMsg(data.message || "✅ Post created!");
       setCaption("");
       setImage(null);
-      navigate("/"); 
+      navigate("/");
     } catch (error) {
       const status = error.response?.status;
-      console.log("upload failed, " , error);
       if (status === 403) setMsg("❌ You are not approved to post.");
       else if (status === 400) setMsg("❌ Image is required.");
       else setMsg("❌ Something went wrong. Try again.");
     }
-  }; 
- 
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <form
